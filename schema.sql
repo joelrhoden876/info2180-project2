@@ -19,7 +19,7 @@ CREATE TABLE `users` (
 INSERT INTO users(id,password,email,created_at) VALUES(1,'password123','admin@project2.com',CURRENT_TIMESTAMP);
 
 
---CONTACTS TABLE
+-- CONTACTS TABLE
 DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE `contacts` (
     `id` integer(15) NOT NULL auto_increment,
@@ -41,7 +41,7 @@ CREATE TABLE `contacts` (
 DROP TABLE IF EXISTS `notes`;
 CREATE TABLE `notes` (
     `id` integer(15) NOT NULL auto_increment,
-    `contact_id` integer(35) NOT NULL default '',
+    `contact_id` integer(35) NOT NULL default '0',
     `comment` text NOT NULL default '',
     `created_by` integer(15) NOT NULL default '0',
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
