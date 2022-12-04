@@ -4,8 +4,8 @@ GRANT ALL PRIVILEGES ON dolphin_crm.* TO 'admin'@'localhost' IDENTIFIED BY 'pass
 USE dolphin_crm;
 
 -- USERS TABLE
-DROP TABLE IF EXISTS `Users`;
-CREATE TABLE `Users` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
     `id` integer(15) NOT NULL auto_increment,
     `firstname` varchar(35) NOT NULL default '',
     `lastname` varchar(35) NOT NULL default '',
@@ -16,13 +16,12 @@ CREATE TABLE `Users` (
     PRIMARY KEY  (`id`)
 );
 
-INSERT INTO `Users` VALUES(1,'','',HASHBYTES('SHA1','password123'),'admin@project2.com','',CURRENT_TIMESTAMP),
-                        
+INSERT INTO users(id,password,email,created_at) VALUES(1,'password123','admin@project2.com',CURRENT_TIMESTAMP);
 
 
--- CONTACTS TABLE
-DROP TABLE IF EXISTS `Contacts`;
-CREATE TABLE `Contacts` (
+--CONTACTS TABLE
+DROP TABLE IF EXISTS `contacts`;
+CREATE TABLE `contacts` (
     `id` integer(15) NOT NULL auto_increment,
     `title` varchar(35) NOT NULL default '',
     `firstname` varchar(35) NOT NULL default '',
@@ -39,8 +38,8 @@ CREATE TABLE `Contacts` (
 );
 
 -- NOTES TABLE
-DROP TABLE IF EXISTS `Notes`;
-CREATE TABLE `Notes` (
+DROP TABLE IF EXISTS `notes`;
+CREATE TABLE `notes` (
     `id` integer(15) NOT NULL auto_increment,
     `contact_id` integer(35) NOT NULL default '',
     `comment` text NOT NULL default '',
