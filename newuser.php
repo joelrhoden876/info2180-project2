@@ -65,8 +65,8 @@
             $passwordError= "The password must have atleast eight characters <br>";
             echo $passwordError;
             exit;
-        }
-        
+        } 
+
 
 		$sql = "INSERT INTO users (firstname, lastname, password, email, role) VALUES
             ('$fname', '$lname', '$password', '$email', '$role')";
