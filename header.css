@@ -1,0 +1,15 @@
+header{
+    display: flex;
+    background-color: black;
+    font-size: 6px;
+    color: white;
+    padding-left: 20px;
+    /* box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2); */
+    padding: 10px;
+    /*align-items: center;*/
+}
+
+body{
+    margin: 0;
+    padding: 0px;
+}
