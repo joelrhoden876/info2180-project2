@@ -16,7 +16,7 @@ CREATE TABLE `users` (
     PRIMARY KEY  (`id`)
 );
 
-INSERT INTO users(id,password,email,created_at) VALUES(1,SHA1('password123'),'admin@project2.com',CURRENT_TIMESTAMP);
+INSERT INTO users(id,password,email,created_at) VALUES(1,'password123','admin@project2.com',CURRENT_TIMESTAMP);
 
 
 -- CONTACTS TABLE

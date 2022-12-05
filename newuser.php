@@ -68,6 +68,8 @@
         } 
 
 
+		//$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 		$sql = "INSERT INTO users (firstname, lastname, password, email, role) VALUES
             ('$fname', '$lname', '$password', '$email', '$role')";
 

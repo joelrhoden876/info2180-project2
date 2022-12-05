@@ -2,6 +2,7 @@
 $servername = "localhost";
 $username = "admin";
 $password = "password123";
+session_start ();
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=dolphin_crm", $username, $password);
