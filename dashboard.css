@@ -163,6 +163,43 @@ td th{
     color: rgb(48, 43, 146);
 }
 
+/* view specific customer's detail */
 .view_Info{
     color: rgb(48, 43, 146);
+}
+
+/* customer icon */
+.fas fa-user-circle{
+    color: gray;
+}
+
+ul{
+    list-style: none;
+}
+
+.background .cust_Name p{
+    margin-left: 7.5%;
+    
+}
+
+/* view.php : customer tel # etc... */
+.grid-container {
+  display: grid;
+  gap: 10px 50px;
+  grid-template-columns: auto auto;
+  background-color: white;
+  padding: 10px;
+  border-style: groove;
+  border-radius: 5px;
+}
+
+.grid-item {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    padding: 0px 0px 0px 20px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+.grid-item-txt{
+    color: rgb(85, 84, 84);
 }

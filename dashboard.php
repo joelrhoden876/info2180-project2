@@ -22,7 +22,7 @@ else{
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Dolphin CRM</title>
+		<title>Dolphin CRM- Dashboard</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	  	<link rel="stylesheet" href="dashboard.css">
 		</head>
@@ -67,11 +67,12 @@ else{
 							<tbody>
 								<?php foreach ($result as $customer): ?>
 								<tr>
-									<td> <a href="viewdetails.php"> <?= $customer['title']." ".$customer['firstname']." ".$customer['lastname']; ?></td>
+									<td> <a href="viewdetails.php?id= <?php echo $customer['id'] ?>"> <?= $customer['title']." ".$customer['firstname']." ".$customer['lastname']; ?></td>
 									<td><?= $customer['email']; ?></td>
 									<td><?= $customer['company']; ?></td>
 									<td><?= $customer['type']; ?></td>
-									<td><a href="viewdetails.php" class="view_Info"> View </a></td>
+									<!-- get and echo id value -->
+									<td><a href="viewdetails.php?id= <?php echo $customer['id'] ?>" class="view_Info"> View </a></td> 
 								</tr>
 								<?php endforeach; ?>
 							</tbody>
