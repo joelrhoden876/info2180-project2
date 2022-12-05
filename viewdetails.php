@@ -5,14 +5,26 @@ $username = 'admin';
 $password = 'password123';
 $dbname = 'dolphin_crm';
 
+/* This is getting the id from the url. */
+$id = $_GET["id"];
+
+
+/* This is connecting to the database. */
 $link = mysqli_connect($host, $username, $password, $dbname);
 if($link === false){
 	die("ERROR: Could not connect. " . mysqli_connect_error());
 }
+
+/* This is checking the database for the id that is passed in the url. */
 else{
-	$sql_check = "SELECT * FROM contacts" ;
+	$sql_check = "SELECT * FROM contacts WHERE id={$id}" ;
 	$result = mysqli_query($link,$sql_check);
-			}
+}
+
+// function getContact($id){
+//     $sql= "select * from contacts where id={$id}"
+//     $stmt= 
+// }
 
 
 ?>
@@ -22,7 +34,7 @@ else{
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Dolphin CRM</title>
+		<title>View Details</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	  	<link rel="stylesheet" href="dashboard.css">
 		</head>
@@ -39,7 +51,16 @@ else{
 				</div>
 			</div>	
 			<div class="background">
-				
+           
+                <?php foreach ($result as $customer): ?>
+                
+                    <h1><?= $customer['firstname']." ".$customer['lastname']; ?></h1>
+                    <!-- <td><?= $customer['email']; ?></td>
+                    
+                    <td><?= $customer['created_at']; ?></td> -->
+                
+                <?php endforeach; ?>
+                
 			</div>
 		</div>
 	</body>
