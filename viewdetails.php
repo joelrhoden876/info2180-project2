@@ -34,6 +34,7 @@ else{
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 		<title>View Details</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	  	<link rel="stylesheet" href="dashboard.css">
@@ -53,12 +54,36 @@ else{
 			<div class="background">
            
                 <?php foreach ($result as $customer): ?>
-                
-                    <h1><?= $customer['firstname']." ".$customer['lastname']; ?></h1>
-                    <!-- <td><?= $customer['email']; ?></td>
+                    <div class="cust_Name">
+                        <ul>
+                            <li>
+                                <i class='fas fa-user-circle' style='font-size:40px; position:relative;'> <?= $customer['title']." ".$customer['firstname']." ".$customer['lastname']; ?> </i>
+                            </li>
+                        </ul>
+                        <p>
+                            Created on  <?= $customer['created_at']; ?> by  <?= $customer['created_by']; ?> <br>
+                            Updated on  <?= $customer['updated_at']; ?>
+                        </p>
+                    </div>
                     
-                    <td><?= $customer['created_at']; ?></td> -->
-                
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <p class="grid-item-txt">Email</p>
+                            <p><?= $customer['email']; ?></p>
+                        </div>
+                        <div class="grid-item">
+                            <p class="grid-item-txt">Telephone</p>
+                            <p><?= $customer['telephone']; ?></p>
+                        </div>
+                        <div class="grid-item">
+                            <p class="grid-item-txt">Company</p>
+                            <p><?= $customer['company']; ?></p>
+                        </div>
+                        <div class="grid-item">
+                            <p class="grid-item-txt">Assigned To</p>
+                            <p><?= $customer['assigned_to']; ?></p>
+                    </div>
+        </div>
                 <?php endforeach; ?>
                 
 			</div>
