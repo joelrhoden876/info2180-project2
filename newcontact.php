@@ -93,7 +93,7 @@
 								<label for="type"> Type</label><br>
 								<select id="type" name="type">
 									<option value="Sales Lead">Sales Lead</option>
-									<option value="Sales Support">Sales Support</option>
+									<option value="Support">Support</option>
 								</select>
 							</div><br>
 							</div>
