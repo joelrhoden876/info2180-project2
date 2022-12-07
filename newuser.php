@@ -23,7 +23,7 @@
 		$fname = $_POST['fname'];
 		$lname = $_POST['lname'];
 		$email = $_POST['email'];
-		$password = $_POST['password'];
+		$password = password_hash($_POST['password']);
         $role = $_POST['role'];
 		
 		/* This is connecting to the database. */

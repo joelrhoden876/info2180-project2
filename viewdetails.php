@@ -25,7 +25,7 @@ else{
 //     $sql= "select * from contacts where id={$id}"
 //     $stmt= 
 // }
-
+//$note = $_REQUEST["note"];
 
 ?>
 
@@ -38,6 +38,7 @@ else{
 		<title>View Details</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	  	<link rel="stylesheet" href="dashboard.css">
+        <script src="notes.js" type="text/javascript"></script>
 		</head>
 	<body>
 		<?php include 'header.php';?>
@@ -84,8 +85,44 @@ else{
                             <p><?= $customer['assigned_to']; ?></p>
                     </div>
         </div>
-                <?php endforeach; ?>
+                <!-- <p><?= $customer['id']; ?></p> -->
+                <div>
+                    <p><i class="fa fa-edit" aria-hidden="true"></i>Notes</p>
+                    <?php $sql_check = "SELECT * FROM notes WHERE contact_id={$id}";?>
+                    <?php $customer_note = mysqli_query($link,$sql_check); ?>
+                    <?php foreach ($customer_note as $customer_notes): ?>
+                    <div class="grid-item">
+                            <!-- <p class="grid-item-txt">Email</p> -->
+                            <h3><?= $customer['firstname']." ".$customer['lastname']; ?></h3>
+                            <p><?= $customer_notes['comment']; ?></p>
+                            <p><?= $customer_notes['created_at']; ?></p>
+                        </div>
+                        <?php endforeach; ?>
+                    <div>
+                    <!-- <p><i class="fa fa-edit" aria-hidden="true"></i>Notes</p> -->
+                    <p>Add a note about <?= $customer['firstname']; ?></p>
+                    <!-- <input id= "note" name= "note" onkeyup="Expand(this)" placeholder="Enter details here" /> -->
+                    <input id="note" type="text" placeholder= "Enter details here" name="details"><br>
+                    <button type= "submit" name="addnote" id="addnote">Add Note</button>
+                    
+                    <?php $note = $_GET['details'];?>
+                    <?php $insert_note = "INSERT INTO notes (contact_id, comment) VALUES ($id, '$note')";?>
+                    <?php if (isset($_GET['addnote'])){
+                            if(mysqli_query($link, $insert_note)){
+			                    echo "Records added successfully.";
+		                        } 
+                            else{
+                            
+			                    echo "ERROR: Was not able to execute $sql. " . mysqli_error($link);
+		                }}?>
+                    <?php mysqli_query($link,$insert_note); ?>
+                    
+                </div>
+                    
+                </div>
                 
+                <?php endforeach; ?>
+                <!--  -->
 			</div>
 		</div>
 	</body>

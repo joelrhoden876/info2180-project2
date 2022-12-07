@@ -1,5 +1,5 @@
 <?php session_start();
-	//require("customer_class.php");
+	
 
 	if (isset($_POST['title']) && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['telephone']) && isset($_POST['company']) && isset($_POST['assigned-to']) && isset($_POST['type'])){
 		$title = htmlspecialchars($_POST['title']);
@@ -18,13 +18,17 @@
 
 		$sql = "INSERT INTO contacts (title, firstname, lastname, email, telephone, company, type, assigned_to) VALUES
             ('$title', '$fname', '$lname', '$email', '$telephone', '$company', '$type', '$assignedUser')";
-
+		
+		echo ".".$contact_id;
 		if(mysqli_query($link, $sql)){
 			echo "Records added successfully.";
 		} else{
 			echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 		}
-	
+		
+		// $select_id = "SELECT * FROM contacts WHERE email={$email}";
+		// $contact_id = mysqli_query($link, $select_id);
+		// echo ".".$contact_id;
 	mysqli_close($link);
 	}
 
@@ -100,8 +104,8 @@
 							<div class="cell">
 								<label for="assigned-to">Assigned To</label><br>
 								<select id="assigned-to" name="assigned-to">
-									<option value="Joel Rhoden">Joel Rhoden</option>
-									<option value="Rohena Black"> Rohena Black</option>
+									<option value="0">0</option>
+									<option value="1">1</option>
 								</select>
 							</div><br>
 							<div class="save-button">
