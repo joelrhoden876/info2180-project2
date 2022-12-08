@@ -5,3 +5,4 @@ Joel Rhoden
 Rohena Black
 Alexie Campbell
 Cheyenne Gowie
+Nishaun Lawrence
